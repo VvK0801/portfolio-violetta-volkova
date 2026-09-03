@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База отдыха «Лирика Души» — Виолетта Волкова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 28px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .back-link:hover {
+            background: #0f172a;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 30px 0 15px 0;
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #1d4ed8;
+            margin: 8px auto 0;
+            border-radius: 4px;
+        }
+
+        .house-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0 15px 0;
+            color: #1d4ed8;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+            text-align: center;
+        }
+
+        .house-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: #1d4ed8;
+            margin: 8px auto 0;
+            border-radius: 4px;
+        }
+
+        .project-description {
+            background: white;
+            padding: 30px 35px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .project-description .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-description h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .project-description h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #1d4ed8;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        .project-description p {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .links-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            background: #1d4ed8;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.2);
+        }
+
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .photo-item {
+            border-radius: 18px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-item img {
+            display: block;
+            object-fit: cover;
+        }
+
+        .photo-item .caption {
+            padding: 12px 16px 16px;
+            background: white;
+        }
+
+        .photo-item .caption h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .photo-item .caption p {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .photo-item.vertical img {
+            width: 280px;
+            height: 420px;
+        }
+
+        .photo-item.horizontal img {
+            width: 500px;
+            height: 320px;
+        }
+
+        .house-exterior {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .house-exterior:hover {
+            transform: scale(1.02);
+        }
+
+        .house-exterior-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .house-exterior-wrapper .caption {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .house-exterior-wrapper .caption h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .house-exterior-wrapper .caption p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* ===== КНОПКА НАВЕРХ ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(29, 78, 216, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            background: #0f172a;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(29, 78, 216, 0.4);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* ===== ЛАЙТБОКС ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 300;
+            z-index: 10;
+        }
+
+        .lightbox .close:hover {
+            color: #c4a675;
+            transform: rotate(90deg);
+        }
+
+        .lightbox .caption-text {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 768px) {
+            .house-exterior {
+                height: 400px;
+                max-width: 320px;
+            }
+            .photo-item.vertical img {
+                width: 200px;
+                height: 300px;
+            }
+            .photo-item.horizontal img {
+                width: 320px;
+                height: 220px;
+            }
+            .project-description {
+                padding: 25px 20px;
+            }
+            .project-description h2 {
+                font-size: 22px;
+            }
+            .lightbox .close {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+            .lightbox .caption-text {
+                font-size: 14px;
+                bottom: 60px;
+                padding: 6px 16px;
+            }
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .house-exterior {
+                height: 300px;
+                max-width: 240px;
+            }
+            .photo-item.vertical img {
+                width: 160px;
+                height: 250px;
+            }
+            .photo-item.horizontal img {
+                width: 260px;
+                height: 180px;
+            }
+            .link-card {
+                width: 100%;
+                text-align: center;
+            }
+            .back-to-top {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <a href="index.html" class="back-link">← Назад к проектам</a>
+
+    <!-- ОПИСАНИЕ ПРОЕКТА -->
+    <div class="project-description">
+        <span class="tag">🏔️ Архитектура · 3D-визуализация · Брендинг</span>
+        <h2>Проект базы отдыха «Лирика Души»</h2>
+        <p>
+            Индивидуальный проект, разработанный от первых эскизов до финальных визуализаций и фирменного стиля.
+        </p>
+        <p>
+            В работе: архитектурные чертежи фасадов, генеральный план, интерьерные решения и айдентика. 14 зданий, объединённых единой концепцией. Каждый элемент проработан вручную — от масштаба территории до тактильных материалов.
+        </p>
+        <p>
+            Особое внимание уделено выбору участка, анализу локальных материалов и строгому соблюдению нормативов: объект расположен в сейсмоопасной зоне, в границах водоохранной зоны и горной местности. Это потребовало комплексного подхода — от изучения ГОСТов и СНиПов до адаптации решений под сложный рельеф и климатические условия.
+        </p>
+        <p>
+            Вся работа выполнена самостоятельно — от концепции до детализации.
+        </p>
+
+        <div class="links-block">
+            <a href="https://www.behance.net/gallery/253363691/chertezhi-bazy-otdyha" target="_blank" class="link-card">
+                📐 Посмотреть чертежи
+            </a>
+            <a href="https://vvk0801.github.io/Lyrica-Dushi-Eco-resort-on-Altai/" target="_blank" class="link-card">
+                🌿 Перейти на сайт базы
+            </a>
+        </div>
+    </div>
+
+    <!-- ====== ВСЕ ФОТО С КЛИКАМИ ====== -->
+
+    <!-- ГОСТЕВЫЕ ДОМА -->
+    <h2 class="section-title">🏠 Гостевые дома</h2>
+
+    <!-- ЛЕСНАЯ СТУДИЯ -->
+    <h3 class="house-title">Лесная Студия</h3>
+
+    <div class="house-exterior-wrapper">
+        <img src="images/houses/forest-studio-exterior.jpg" alt="Лесная Студия" class="house-exterior" onclick="openLightbox(this.src, 'Лесная Студия — Экстерьер')">
+        <div class="caption">
+            <h4>Лесная Студия</h4>
+            <p>Экстерьер</p>
+        </div>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Лесная Студия — Спальня')">
+            <img src="images/houses/forest-studio-bedroom.jpg" alt="Спальня">
+            <div class="caption">
+                <h4>Спальня</h4>
+                <p>Лесная Студия</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Лесная Студия — Кухня')">
+            <img src="images/houses/forest-studio-kitchen.jpg" alt="Кухня">
+            <div class="caption">
+                <h4>Кухня</h4>
+                <p>Лесная Студия</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Лесная Студия — Ванная')">
+            <img src="images/houses/forest-studio-bathroom.jpg" alt="Ванная">
+            <div class="caption">
+                <h4>Ванная</h4>
+                <p>Лесная Студия</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- СЕМЕЙНЫЙ ДОМ -->
+    <h3 class="house-title">Семейный Дом</h3>
+
+    <div class="house-exterior-wrapper">
+        <img src="images/houses/family-house-exterior.jpg" alt="Семейный Дом" class="house-exterior" onclick="openLightbox(this.src, 'Семейный Дом — Экстерьер')">
+        <div class="caption">
+            <h4>Семейный Дом</h4>
+            <p>Экстерьер</p>
+        </div>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Семейный Дом — Спальня 1')">
+            <img src="images/houses/family-house-bedroom1.jpg" alt="Спальня 1">
+            <div class="caption">
+                <h4>Спальня 1</h4>
+                <p>Семейный Дом</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Семейный Дом — Спальня 2')">
+            <img src="images/houses/family-house-bedroom2.jpg" alt="Спальня 2">
+            <div class="caption">
+                <h4>Спальня 2</h4>
+                <p>Семейный Дом</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Семейный Дом — Кухня-гостиная')">
+            <img src="images/houses/family-house-kitchen-living.jpg" alt="Кухня-гостиная">
+            <div class="caption">
+                <h4>Кухня-гостиная</h4>
+                <p>Семейный Дом</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Семейный Дом — Ванная')">
+            <img src="images/houses/family-house-bathroom.jpg" alt="Ванная">
+            <div class="caption">
+                <h4>Ванная</h4>
+                <p>Семейный Дом</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПАНОРАМНЫЙ ЛЮКС -->
+    <h3 class="house-title">Панорамный Люкс</h3>
+
+    <div class="house-exterior-wrapper">
+        <img src="images/houses/panorama-lux-exterior.jpg" alt="Панорамный Люкс" class="house-exterior" onclick="openLightbox(this.src, 'Панорамный Люкс — Экстерьер')">
+        <div class="caption">
+            <h4>Панорамный Люкс</h4>
+            <p>Экстерьер</p>
+        </div>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Панорамный Люкс — Спальня 1')">
+            <img src="images/houses/panorama-lux-bedroom1.jpg" alt="Спальня 1">
+            <div class="caption">
+                <h4>Спальня 1</h4>
+                <p>Панорамный Люкс</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Панорамный Люкс — Спальня 2')">
+            <img src="images/houses/panorama-lux-bedroom2.jpg" alt="Спальня 2">
+            <div class="caption">
+                <h4>Спальня 2</h4>
+                <p>Панорамный Люкс</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Панорамный Люкс — Спальня 3')">
+            <img src="images/houses/panorama-lux-bedroom3.jpg" alt="Спальня 3">
+            <div class="caption">
+                <h4>Спальня 3</h4>
+                <p>Панорамный Люкс</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Панорамный Люкс — Кухня')">
+            <img src="images/houses/panorama-lux-kitchen.jpg" alt="Кухня">
+            <div class="caption">
+                <h4>Кухня</h4>
+                <p>Панорамный Люкс</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Панорамный Люкс — Ванная')">
+            <img src="images/houses/panorama-lux-bathroom.jpg" alt="Ванная">
+            <div class="caption">
+                <h4>Ванная</h4>
+                <p>Панорамный Люкс</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- РЕСТОРАН -->
+    <h2 class="section-title">🍽️ Ресторан</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Ресторан — Зал 1')">
+            <img src="images/restaurant/restaurant-hall-1.jpg" alt="Зал 1">
+            <div class="caption">
+                <h4>Зал ресторана</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Ресторан — Зал 2')">
+            <img src="images/restaurant/restaurant-hall-2.jpg" alt="Зал 2">
+            <div class="caption">
+                <h4>Зал ресторана</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Ресторан — Зал 3')">
+            <img src="images/restaurant/restaurant-hall-3.jpg" alt="Зал 3">
+            <div class="caption">
+                <h4>Зал ресторана</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Ресторан — Зал 4')">
+            <img src="images/restaurant/restaurant-hall-4.jpg" alt="Зал 4">
+            <div class="caption">
+                <h4>Зал ресторана</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Ресторан — Вывеска')">
+            <img src="images/restaurant/restaurant-signboard.jpg" alt="Вывеска">
+            <div class="caption">
+                <h4>Вывеска ресторана</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- БАССЕЙН -->
+    <h2 class="section-title">🏊 Бассейн</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Бассейн — Здание')">
+            <img src="images/pool/pool-exterior.jpg" alt="Здание бассейна">
+            <div class="caption">
+                <h4>Здание бассейна</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Бассейн')">
+            <img src="images/pool/pool-interior.jpg" alt="Бассейн">
+            <div class="caption">
+                <h4>Бассейн</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Бассейн — Раздевалки')">
+            <img src="images/pool/pool-changing-room.jpg" alt="Раздевалки">
+            <div class="caption">
+                <h4>Раздевалки</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- СПА -->
+    <h2 class="section-title">🧖 Спа-комплекс</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Спа — Здание')">
+            <img src="images/spa/spa-exterior.jpg" alt="Здание спа">
+            <div class="caption">
+                <h4>Здание спа</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Спа — Массажная зона')">
+            <img src="images/spa/spa-massage.jpg" alt="Массажная зона">
+            <div class="caption">
+                <h4>Массажная зона</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Спа — Терраса для йоги')">
+            <img src="images/spa/spa-yoga-terrace.jpg" alt="Терраса для йоги">
+            <div class="caption">
+                <h4>Терраса для йоги</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- БАНЯ -->
+    <h2 class="section-title">🛁 Баня</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Баня — Здание')">
+            <img src="images/banya/banya-exterior.jpg" alt="Здание бани">
+            <div class="caption">
+                <h4>Здание бани</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Баня — Зона отдыха')">
+            <img src="images/banya/banya-relax-zone.jpg" alt="Зона отдыха">
+            <div class="caption">
+                <h4>Зона отдыха</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Баня — Парная')">
+            <img src="images/banya/banya-steam-room.jpg" alt="Парная">
+            <div class="caption">
+                <h4>Парная</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- РЕСЕПШЕН -->
+    <h2 class="section-title">🏨 Ресепшен</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Ресепшен — Здание')">
+            <img src="images/reception/reception-exterior.jpg" alt="Здание ресепшена">
+            <div class="caption">
+                <h4>Здание ресепшена</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Ресепшен — Зона ресепшена')">
+            <img src="images/reception/reception-area.jpg" alt="Зона ресепшена">
+            <div class="caption">
+                <h4>Зона ресепшена</h4>
+                <p>Интерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- МАСТЕРСКИЕ -->
+    <h2 class="section-title">🛠️ Мастерские</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Чайная мастерская')">
+            <img src="images/workshops/tea-workshop.jpg" alt="Чайная мастерская">
+            <div class="caption">
+                <h4>Чайная мастерская</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Ремесленная мастерская')">
+            <img src="images/workshops/craft-workshop.jpg" alt="Ремесленная мастерская">
+            <div class="caption">
+                <h4>Ремесленная мастерская</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ИНФРАСТРУКТУРА -->
+    <h2 class="section-title">🌿 Инфраструктура</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Костровая площадь')">
+            <img src="images/infrastructure/firepit-area.jpg" alt="Костровая площадь">
+            <div class="caption">
+                <h4>Костровая площадь</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Пруд')">
+            <img src="images/infrastructure/pond.jpg" alt="Пруд">
+            <div class="caption">
+                <h4>Пруд</h4>
+                <p>Ландшафт</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Астрокупол')">
+            <img src="images/infrastructure/astro-dome.jpg" alt="Астрокупол">
+            <div class="caption">
+                <h4>Астрокупол</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Детская площадка')">
+            <img src="images/infrastructure/playground.jpg" alt="Детская площадка">
+            <div class="caption">
+                <h4>Детская площадка</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Тропа здоровья 1')">
+            <img src="images/infrastructure/health-trail-1.jpg" alt="Тропа здоровья 1">
+            <div class="caption">
+                <h4>Тропа здоровья</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Тропа здоровья 2')">
+            <img src="images/infrastructure/health-trail-2.jpg" alt="Тропа здоровья 2">
+            <div class="caption">
+                <h4>Тропа здоровья</h4>
+                <p>Экстерьер</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ФИРМЕННЫЙ СТИЛЬ -->
+    <h2 class="section-title">🎨 Фирменный стиль</h2>
+
+    <div class="photo-grid">
+        <div class="photo-item vertical" onclick="openLightbox(this.querySelector('img').src, 'Униформа')">
+            <img src="images/branding/branding-uniform.jpg" alt="Униформа">
+            <div class="caption">
+                <h4>Униформа</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Логотип')">
+            <img src="images/branding/branding-logo.jpg" alt="Логотип">
+            <div class="caption">
+                <h4>Логотип</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Меню')">
+            <img src="images/branding/branding-menu.jpg" alt="Меню">
+            <div class="caption">
+                <h4>Меню</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Наклейки')">
+            <img src="images/branding/branding-stickers.jpg" alt="Наклейки">
+            <div class="caption">
+                <h4>Наклейки</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Ключи с логотипом')">
+            <img src="images/branding/branding-keys.jpg" alt="Ключи">
+            <div class="caption">
+                <h4>Ключи с логотипом</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Тапочки')">
+            <img src="images/branding/branding-slippers.jpg" alt="Тапочки">
+            <div class="caption">
+                <h4>Тапочки</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Полотенца')">
+            <img src="images/branding/branding-towels.jpg" alt="Полотенца">
+            <div class="caption">
+                <h4>Полотенца</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Баночка для душа')">
+            <img src="images/branding/branding-shower-gel.jpg" alt="Баночка для душа">
+            <div class="caption">
+                <h4>Баночка для душа</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+        <div class="photo-item horizontal" onclick="openLightbox(this.querySelector('img').src, 'Дорхенгер')">
+            <img src="images/branding/branding-door-hanger.jpg" alt="Дорхенгер">
+            <div class="caption">
+                <h4>Дорхенгер</h4>
+                <p>Фирменный стиль</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0 20px;">
+        <a href="index.html" class="back-link" style="display: inline-block;">← Назад к проектам</a>
+    </div>
+
+</div>
+
+<!-- ===== ЛАЙТБОКС ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="close" onclick="closeLightbox(event)">×</span>
+    <img id="lightbox-img" src="" alt="Фото">
+    <div class="caption-text" id="lightbox-caption"></div>
+</div>
+
+<!-- ===== КНОПКА НАВЕРХ ===== -->
+<button id="backToTopBtn" class="back-to-top" title="Наверх">↑</button>
+
+<script>
+    // ЛАЙТБОКС
+    function openLightbox(src, caption) {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const captionEl = document.getElementById('lightbox-caption');
+        
+        img.src = src;
+        captionEl.textContent = caption || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+        if (event.target === event.currentTarget || event.target.classList.contains('close')) {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+
+    // ===== КНОПКА НАВЕРХ =====
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</body>
+</html>

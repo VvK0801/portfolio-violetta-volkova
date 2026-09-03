@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вета — Дизайнер пространств</title>
+
+    <!-- Шрифты Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome (иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+                   ГЛОБАЛЬНЫЕ СТИЛИ
+                   ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ============================================================
+                   АНИМАЦИИ
+                   ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 0.9s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+        .delay-4 { animation-delay: 0.7s; }
+
+        /* ============================================================
+                   ШАПКА (Hero)
+                   ============================================================ */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh;
+            padding: 60px 0;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 45%;
+            min-width: 300px;
+        }
+
+        .hero-content .badge {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c4a675;
+            margin-bottom: 16px;
+            border-left: 3px solid #c4a675;
+            padding-left: 14px;
+        }
+
+        .hero-content h1 {
+            font-size: 62px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            letter-spacing: -2px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 span {
+            color: #c4a675;
+        }
+
+        .hero-content .subtitle {
+            font-size: 22px;
+            color: #b0b0b0;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .hero-content .specialization {
+            font-size: 18px;
+            color: #8a8a8a;
+            margin-bottom: 28px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-email {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin: 10px 0 16px 0;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-email a {
+            color: #c4a675;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .hero-email a:hover {
+            color: #ffffff;
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .hero-social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 40px;
+            background: #2a2a2a;
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.3s ease;
+            border: 1px solid #3a3a3a;
+        }
+
+        .hero-social a:hover {
+            background: #c4a675;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(196, 166, 117, 0.2);
+            border-color: #c4a675;
+        }
+
+        .hero-social a i {
+            font-size: 16px;
+        }
+
+        .hero-image {
+            flex: 1 1 40%;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            border-radius: 30px;
+            object-fit: cover;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid #2a2a2a;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-link {
+            display: inline-block;
+            font-weight: 600;
+            color: #c4a675;
+            text-decoration: none;
+            border-bottom: 2px solid #c4a675;
+            padding-bottom: 4px;
+            font-size: 18px;
+            transition: 0.3s ease;
+        }
+
+        .hero-link:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        /* ============================================================
+                   ОБО МНЕ
+                   ============================================================ */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 0;
+            flex-wrap: wrap;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 20px;
+        }
+
+        .about-image {
+            flex: 1 1 35%;
+            min-width: 250px;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: 600px;
+            border-radius: 30px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid #2a2a2a;
+            cursor: pointer;
+        }
+
+        .about-text {
+            flex: 1 1 50%;
+            min-width: 280px;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            font-size: 19px;
+            line-height: 1.9;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .about-text .education-block {
+            margin: 25px 0;
+            padding: 25px 30px;
+            background: rgba(196, 166, 117, 0.05);
+            border-radius: 16px;
+            border-left: 3px solid #c4a675;
+        }
+
+        .about-text .education-block .edu-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #c4a675;
+            margin-bottom: 12px;
+        }
+
+        .about-text .education-block .edu-item {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 6px;
+            line-height: 1.8;
+        }
+
+        .about-text .education-block .edu-item strong {
+            color: #c4a675;
+        }
+
+        .about-text .education-block .status {
+            color: #c4a675;
+            font-size: 15px;
+            margin-left: 4px;
+        }
+
+        .about-text .education-block .edu-university {
+            color: #e8e8e8;
+        }
+
+        .about-text .education-block .courses-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #c4a675;
+            margin: 14px 0 8px 0;
+        }
+
+        .about-text .education-block .course-item {
+            font-size: 17px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .about-text .education-block .course-item::before {
+            content: "•";
+            color: #c4a675;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-item .number {
+            font-size: 38px;
+            font-weight: 800;
+            color: #c4a675;
+            line-height: 1;
+        }
+
+        .stat-item .label {
+            font-size: 16px;
+            color: #8a8a8a;
+            margin-top: 4px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .skill-tags span {
+            background: #2a2a2a;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #e8e8e8;
+            border: 1px solid #3a3a3a;
+        }
+
+        /* ===== КЛЮЧЕВОЙ ПРОЕКТ ===== */
+        .project-highlight {
+            margin: 25px 0;
+            padding: 22px 28px;
+            background: rgba(196, 166, 117, 0.05);
+            border-radius: 16px;
+            border-left: 3px solid #c4a675;
+        }
+
+        .project-highlight .highlight-title {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 6px;
+            line-height: 1.8;
+        }
+
+        .project-highlight .highlight-title strong {
+            color: #c4a675;
+        }
+
+        .project-highlight .highlight-name {
+            font-size: 22px;
+            color: #e8e8e8;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-highlight .highlight-desc {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.9;
+        }
+
+        .project-highlight .highlight-desc strong {
+            color: #c4a675;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, #c4a675 0%, #a8894a 100%);
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #c4a675;
+            box-shadow: 0 4px 15px rgba(196, 166, 117, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(196, 166, 117, 0.4);
+        }
+
+        /* ============================================================
+                   ПРОЕКТЫ (КАРТОЧКИ)
+                   ============================================================ */
+        .projects-heading {
+            padding: 60px 0 10px;
+        }
+
+        .projects-heading h2 {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .projects-heading p {
+            color: #8a8a8a;
+            font-size: 19px;
+            margin-top: 6px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 30px 0 60px;
+        }
+
+        .project-card {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.35s ease;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #222222;
+            border: 1px solid #2a2a2a;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            border-color: #c4a675;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card .card-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 24px 24px 0 0;
+            transition: 0.4s ease;
+            display: block;
+            pointer-events: none;
+        }
+
+        .project-card:hover .card-image {
+            transform: scale(1.02);
+        }
+
+        .project-card .card-content {
+            padding: 18px 24px 24px;
+        }
+
+        .project-card .card-content .tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c4a675;
+            margin-bottom: 4px;
+        }
+
+        .project-card .card-content h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .project-card .card-content p {
+            font-size: 17px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .project-card .card-content .arrow {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #c4a675;
+            transition: 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover .card-content .arrow {
+            transform: translateX(8px);
+        }
+
+        /* ============================================================
+                   СЕРТИФИКАТЫ — УВЕЛИЧЕННЫЕ
+                   ============================================================ */
+        .certs-section {
+            padding: 40px 0 60px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .certs-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #222222;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            border: 1px solid #2a2a2a;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+            border-color: #c4a675;
+        }
+
+        .cert-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .cert-card.vertical {
+            grid-row: span 2;
+            height: 480px;
+        }
+
+        .cert-card.horizontal {
+            height: 280px;
+        }
+
+        .cert-card .cert-label {
+            padding: 12px 16px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e8e8e8;
+            background: #222222;
+            pointer-events: none;
+        }
+
+        /* ============================================================
+                   ЛАЙТБОКС (МОДАЛЬНОЕ ОКНО)
+                   ============================================================ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 300;
+            z-index: 10;
+        }
+
+        .lightbox .close:hover {
+            color: #c4a675;
+            transform: rotate(90deg);
+        }
+
+        .lightbox .caption-text {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ============================================================
+                   КОНТАКТЫ
+                   ============================================================ */
+        .contact-section {
+            padding: 50px 0 40px;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .contact-section .phone {
+            font-size: 26px;
+            font-weight: 600;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+        }
+
+        .contact-section .email {
+            font-size: 18px;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+        }
+
+        .contact-section .email a {
+            color: #c4a675;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .contact-section .email a:hover {
+            color: #ffffff;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 12px 30px;
+            border-radius: 40px;
+            background: #2a2a2a;
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: 500;
+            font-size: 17px;
+            transition: 0.3s ease;
+            border: 1px solid #3a3a3a;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-links a:hover {
+            background: #c4a675;
+            color: #1a1a1a;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(196, 166, 117, 0.15);
+            border-color: #c4a675;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0 20px;
+            font-size: 16px;
+            color: #6a6a6a;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 20px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #c4a675;
+            color: #1a1a1a;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            box-shadow: 0 8px 24px rgba(196, 166, 117, 0.2);
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #ffffff;
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 40px 0;
+                min-height: auto;
+            }
+            .hero-content h1 {
+                font-size: 44px;
+            }
+            .hero-social {
+                justify-content: center;
+            }
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 0;
+            }
+            .about-stats {
+                justify-content: center;
+            }
+            .skill-tags {
+                justify-content: center;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .certs-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 100%;
+                gap: 20px;
+            }
+            .cert-card.vertical {
+                grid-row: span 1;
+                height: 300px;
+            }
+            .cert-card.horizontal {
+                height: 300px;
+            }
+            .lightbox .close {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+            .lightbox .caption-text {
+                font-size: 14px;
+                bottom: 60px;
+                padding: 6px 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .certs-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 16px;
+            }
+            .cert-card.vertical {
+                height: 350px;
+            }
+            .cert-card.horizontal {
+                height: 250px;
+            }
+            .hero-image img {
+                max-width: 300px;
+            }
+            .about-image img {
+                height: 400px;
+            }
+            .about-text .education-block .edu-item {
+                font-size: 16px;
+            }
+            .lightbox .close {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+            .lightbox .caption-text {
+                font-size: 14px;
+                bottom: 60px;
+                padding: 6px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-image img {
+                height: 300px;
+            }
+            .cert-card.vertical {
+                height: 300px;
+            }
+            .cert-card.horizontal {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    ШАПКА (HERO)
+    ============================================================ -->
+    <div class="container">
+        <section class="hero animate">
+            <div class="hero-content">
+                <div class="badge">Дизайн пространств</div>
+                <h1>
+                    Вета<br />
+                    <span>Волкова</span>
+                </h1>
+                <p class="subtitle">Дизайнер пространств · 3D-визуализатор · Графический дизайнер</p>
+                <p class="specialization">Создаю пространства, в которых хочется оставаться</p>
+
+                <p class="hero-email">
+                    📧 <a href="mailto:Violettavolkova32@gmail.com">Violettavolkova32@gmail.com</a>
+                </p>
+
+                <div class="hero-social">
+                    <a href="https://www.behance.net/4012abaf" target="_blank"><i class="fab fa-behance"></i> Behance</a>
+                    <a href="https://t.me/Veta0801" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                    <a href="https://www.instagram.com/low_dwarf_?igsi=d2d2cG9tM21hOXNu" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+
+                <a href="#projects" class="hero-link">↓ Смотреть проекты</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="images/avatar.jpg" alt="Вета Волкова" onclick="openLightbox(this.src, 'Вета Волкова')" />
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ОБО МНЕ
+        ============================================================ -->
+        <section class="about-section animate delay-1">
+            <div class="about-image">
+                <img src="images/avatar2.jpg" alt="Вета Волкова" onclick="openLightbox(this.src, 'Вета Волкова')" />
+            </div>
+            <div class="about-text">
+                <h2>Обо мне</h2>
+
+                <p>
+                    Меня зовут Вета. Я создаю пространства, в которых хочется оставаться. Проектирую на стыке архитектуры, дизайна и брендинга. Для меня нет деления на интерьер и экстерьер — есть целостная среда, где каждая деталь работает на атмосферу.
+                </p>
+
+                <p>
+                    В каждом проекте я ищу ответ на вопрос: <em>«Как это будет жить?»</em> Свет, материалы, движение людей, смена сезонов — я продумываю всё, чтобы пространство было красивым, удобным и долговечным.
+                </p>
+
+                <!-- БЛОК ОБ ОБРАЗОВАНИИ -->
+                <div class="education-block">
+                    <p class="edu-title">🎓 Образование</p>
+
+                    <p class="edu-item">
+                        <strong>Дизайнер</strong> — Новосибирский Городской Открытый колледж <span class="status">(окончила)</span>
+                    </p>
+                    <p class="edu-item">
+                        <strong class="edu-university">Ландшафтный архитектор</strong> — НГАУ, заочная форма <span class="status">(в процессе)</span>
+                    </p>
+
+                    <p class="courses-title">📚 Дополнительные курсы:</p>
+                    <p class="course-item">Skillbox — Веб-дизайн</p>
+                    <p class="course-item">AMS³ — ArchiCAD (интерьеры, ландшафт)</p>
+                    <p class="course-item">AMS³ — SketchUp (интерьеры)</p>
+                    <p class="course-item">Diskill — Дизайн интерьера</p>
+                </div>
+
+                <!-- КЛЮЧЕВОЙ ПРОЕКТ -->
+                <div class="project-highlight">
+                    <p class="highlight-title">
+                        <strong>🏔️ Ключевой проект</strong>
+                    </p>
+                    <p class="highlight-name">
+                        База отдыха «Лирика Души»
+                    </p>
+                    <p class="highlight-desc">
+                        Спроектировала и визуализировала <strong>10 зданий</strong>, разработала <strong>10+ элементов</strong> фирменного стиля. Работала от первых набросков до финальных рендеров и мокапов.
+                    </p>
+                    <div style="margin-top: 14px;">
+                        <a href="https://vvk0801.github.io/Lyrica-Dushi-Eco-resort-on-Altai/" target="_blank" class="btn-gold">
+                            🌿 Смотреть сайт базы
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="number">1+</span>
+                        <span class="label">год опыта</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">10</span>
+                        <span class="label">зданий в проекте</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">10+</span>
+                        <span class="label">элементов фирмстиля</span>
+                    </div>
+                </div>
+
+                <!-- ИНСТРУМЕНТЫ -->
+                <div style="margin: 20px 0 0;">
+                    <p style="font-size: 17px; color: #b0b0b0; margin-bottom: 8px;">
+                        <strong style="color: #c4a675;">🛠️ Инструменты</strong>
+                    </p>
+                    <div class="skill-tags">
+                        <span>🏛️ Архитектура</span>
+                        <span>🎨 3D-визуализация</span>
+                        <span>🖌️ Брендинг</span>
+                        <span>📐 Генплан</span>
+                        <span>🧱 Интерьеры</span>
+                        <span>📱 Веб-дизайн</span>
+                        <span>🖥️ AutoCAD</span>
+                        <span>🎨 3ds Max</span>
+                        <span>🧊 Blender</span>
+                        <span>📷 Photoshop</span>
+                        <span>✏️ Illustrator</span>
+                        <span>📐 Figma</span>
+                        <span>📏 SketchUp</span>
+                        <span>📐 ArchiCAD</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 19px; color: #b0b0b0; line-height: 1.9;">
+                    Я открыта к нестандартным задачам. Люблю, когда в проекте есть вызов и пространство для поиска неочевидных решений. Делаю сложное — понятным, а простое — красивым.
+                </p>
+                <p style="font-size: 22px; color: #c4a675; font-weight: 600; margin-top: 10px;">
+                    Давайте создадим что-то вместе.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ПРОЕКТЫ
+        ============================================================ -->
+        <div class="projects-heading animate delay-2" id="projects">
+            <h2>📂 Проекты</h2>
+            <p>Нажми на любой, чтобы изучить детали</p>
+        </div>
+
+        <div class="projects-grid animate delay-2">
+
+            <!-- Алтай -->
+            <div>
+                <a href="altay.html" class="project-card" onclick="return true;">
+                    <img class="card-image" src="images/altay_guest.jpg" alt="База отдыха Алтай" onclick="openLightbox(this.src, 'База отдыха «Алтай»'); return false;" />
+                    <div class="card-content">
+                        <span class="tag">Архитектура · 3D · Брендинг</span>
+                        <h3>База отдыха «Алтай»</h3>
+                        <p>10 зданий, визуализации, фирменный стиль</p>
+                        <span class="arrow">Подробнее →</span>
+                    </div>
+                </a>
+                <div style="text-align: center; margin-top: 14px;">
+                    <a href="https://vvk0801.github.io/Lyrica-Dushi-Eco-resort-on-Altai/" target="_blank" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #c4a675 0%, #a8894a 100%);
+                        color: #1a1a1a;
+                        font-weight: 700;
+                        font-size: 15px;
+                        padding: 12px 32px;
+                        border-radius: 30px;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                        border: 2px solid #c4a675;
+                        box-shadow: 0 4px 15px rgba(196, 166, 117, 0.3);
+                        letter-spacing: 0.5px;
+                    "
+                    onmouseover="this.style.background='#ffffff'; this.style.borderColor='#c4a675'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(196, 166, 117, 0.4)';"
+                    onmouseout="this.style.background='linear-gradient(135deg, #c4a675 0%, #a8894a 100%)'; this.style.borderColor='#c4a675'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(196, 166, 117, 0.3)';">
+                        🌿 Смотреть живой сайт
+                    </a>
+                </div>
+            </div>
+
+            <!-- Витрина -->
+            <a href="window.html" class="project-card">
+                <img class="card-image" src="images/window_concept.jpg" alt="Витрина цветочного магазина" onclick="openLightbox(this.src, 'Витрина цветочного магазина'); return false;" />
+                <div class="card-content">
+                    <span class="tag">Оформление витрины</span>
+                    <h3>Витрина цветочного магазина</h3>
+                    <p>Концепция, эскизы, мокапы, декор</p>
+                    <span class="arrow">Подробнее →</span>
+                </div>
+            </a>
+
+            <!-- Детский центр -->
+            <a href="child.html" class="project-card">
+                <img class="card-image" src="images/child_diploma.jpg" alt="Детский центр" onclick="openLightbox(this.src, 'Детский центр'); return false;" />
+                <div class="card-content">
+                    <span class="tag">Графический дизайн</span>
+                    <h3>Детский центр</h3>
+                    <p>Дипломы, брошюры, пригласительные</p>
+                    <span class="arrow">Подробнее →</span>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- ============================================================
+        СЕРТИФИКАТЫ — УВЕЛИЧЕННЫЕ
+        ============================================================ -->
+        <section class="certs-section animate delay-3">
+            <h2>📜 Сертификаты</h2>
+            <div class="certs-grid">
+                <div class="cert-card vertical" onclick="openLightbox(this.querySelector('img').src, 'Курс архитектуры')">
+                    <img src="images/cert_1.jpg" alt="Сертификат 1" />
+                    <div class="cert-label">Курс архитектуры</div>
+                </div>
+                <div class="cert-card horizontal" onclick="openLightbox(this.querySelector('img').src, '3D-визуализация')">
+                    <img src="images/cert_2.jpg" alt="Сертификат 2" />
+                    <div class="cert-label">3D-визуализация</div>
+                </div>
+                <div class="cert-card horizontal" onclick="openLightbox(this.querySelector('img').src, 'Графический дизайн')">
+                    <img src="images/cert_3.jpg" alt="Сертификат 3" />
+                    <div class="cert-label">Графический дизайн</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        КОНТАКТЫ
+        ============================================================ -->
+        <section class="contact-section animate delay-4">
+            <h2>📬 Давайте работать</h2>
+            <p class="phone">📱 +7 951 361 38 80</p>
+            <p class="email">📧 <a href="mailto:Violettavolkova32@gmail.com">Violettavolkova32@gmail.com</a></p>
+            <div class="contact-links">
+                <a href="https://www.behance.net/4012abaf" target="_blank"><i class="fab fa-behance"></i> Behance</a>
+                <a href="https://t.me/Veta0801" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="https://www.instagram.com/low_dwarf_?igsi=d2d2cG9tM21hOXNu" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </section>
+
+        <div class="footer">
+            © 2026 Вета Волкова
+        </div>
+
+    </div>
+
+    <!-- ============================================================
+    ЛАЙТБОКС (МОДАЛЬНОЕ ОКНО)
+    ============================================================ -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <span class="close" onclick="closeLightbox(event)">×</span>
+        <img id="lightbox-img" src="" alt="Фото">
+        <div class="caption-text" id="lightbox-caption"></div>
+    </div>
+
+    <!-- ============================================================
+    КНОПКА НАВЕРХ
+    ============================================================ -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // ===== ЛАЙТБОКС =====
+        function openLightbox(src, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const captionEl = document.getElementById('lightbox-caption');
+            img.src = src;
+            captionEl.textContent = caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target === event.currentTarget || event.target.classList.contains('close')) {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // ===== КНОПКА НАВЕРХ =====
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
