@@ -266,7 +266,7 @@
 
         .about-section {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             gap: 60px;
             padding: 80px 0;
             flex-wrap: wrap;
@@ -274,31 +274,98 @@
             margin-top: 20px;
         }
 
-        .about-image {
+        .about-left {
             flex: 1 1 35%;
             min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .about-image img {
+        .about-left .about-image {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .about-left .about-image img {
             width: 100%;
             max-width: 400px;
-            height: 600px;
-            border-radius: 30px;
+            height: auto;
+            aspect-ratio: 3 / 4;
             object-fit: cover;
+            border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid #2a2a2a;
             cursor: pointer;
             transition: all 0.4s ease;
+            display: block;
+            margin: 0 auto;
         }
 
-        .about-image img:hover {
+        .about-left .about-image img:hover {
             transform: scale(1.02);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-left .tools-block {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .about-left .tools-block .tools-title {
+            font-size: 20px;
+            color: #c4a675;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .about-left .tools-block .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .about-left .tools-block .skill-tags span {
+            background: #2a2a2a;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #e8e8e8;
+            border: 1px solid #3a3a3a;
+            transition: all 0.3s ease;
+        }
+
+        .about-left .tools-block .skill-tags span:hover {
+            background: #c4a675;
+            color: #1a1a1a;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(196, 166, 117, 0.2);
+        }
+
+        .about-left .tools-block .tools-text {
+            font-size: 19px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-top: 6px;
+        }
+
+        .about-left .tools-block .tools-cta {
+            font-size: 24px;
+            color: #c4a675;
+            font-weight: 600;
+            margin-top: 8px;
         }
 
         .about-text {
             flex: 1 1 50%;
             min-width: 280px;
+            display: flex;
+            flex-direction: column;
         }
 
         .about-text h2 {
@@ -380,57 +447,7 @@
             left: 0;
         }
 
-        .about-stats {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-item .number {
-            font-size: 38px;
-            font-weight: 800;
-            color: #c4a675;
-            line-height: 1;
-        }
-
-        .stat-item .label {
-            font-size: 16px;
-            color: #8a8a8a;
-            margin-top: 4px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .skill-tags span {
-            background: #2a2a2a;
-            padding: 8px 22px;
-            border-radius: 40px;
-            font-size: 15px;
-            font-weight: 500;
-            color: #e8e8e8;
-            border: 1px solid #3a3a3a;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tags span:hover {
-            background: #c4a675;
-            color: #1a1a1a;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(196, 166, 117, 0.2);
-        }
-
-        .project-highlight {
+        .about-text .project-highlight {
             margin: 25px 0;
             padding: 22px 28px;
             background: rgba(196, 166, 117, 0.05);
@@ -439,40 +456,40 @@
             transition: all 0.3s ease;
         }
 
-        .project-highlight:hover {
+        .about-text .project-highlight:hover {
             background: rgba(196, 166, 117, 0.1);
             transform: translateX(5px);
         }
 
-        .project-highlight .highlight-title {
+        .about-text .project-highlight .highlight-title {
             font-size: 18px;
             color: #b0b0b0;
             margin-bottom: 6px;
             line-height: 1.8;
         }
 
-        .project-highlight .highlight-title strong {
+        .about-text .project-highlight .highlight-title strong {
             color: #c4a675;
         }
 
-        .project-highlight .highlight-name {
+        .about-text .project-highlight .highlight-name {
             font-size: 22px;
             color: #e8e8e8;
             font-weight: 600;
             margin-bottom: 4px;
         }
 
-        .project-highlight .highlight-desc {
+        .about-text .project-highlight .highlight-desc {
             font-size: 18px;
             color: #b0b0b0;
             line-height: 1.9;
         }
 
-        .project-highlight .highlight-desc strong {
+        .about-text .project-highlight .highlight-desc strong {
             color: #c4a675;
         }
 
-        .btn-gold {
+        .about-text .btn-gold {
             display: inline-block;
             background: linear-gradient(135deg, #c4a675 0%, #a8894a 100%);
             color: #1a1a1a;
@@ -486,10 +503,35 @@
             box-shadow: 0 4px 15px rgba(196, 166, 117, 0.3);
         }
 
-        .btn-gold:hover {
+        .about-text .btn-gold:hover {
             background: #ffffff;
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(196, 166, 117, 0.4);
+        }
+
+        .about-text .about-stats {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .about-text .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-text .stat-item .number {
+            font-size: 38px;
+            font-weight: 800;
+            color: #c4a675;
+            line-height: 1;
+        }
+
+        .about-text .stat-item .label {
+            font-size: 16px;
+            color: #8a8a8a;
+            margin-top: 4px;
         }
 
         .projects-heading {
@@ -828,10 +870,19 @@
                 text-align: center;
                 padding: 50px 0;
             }
-            .about-stats {
+            .about-left {
+                align-items: center;
+            }
+            .about-left .about-image img {
+                max-width: 300px;
+            }
+            .about-left .tools-block {
+                text-align: center;
+            }
+            .about-left .tools-block .skill-tags {
                 justify-content: center;
             }
-            .skill-tags {
+            .about-stats {
                 justify-content: center;
             }
             .projects-grid {
@@ -885,8 +936,8 @@
             .hero-image img {
                 max-width: 300px;
             }
-            .about-image img {
-                height: 400px;
+            .about-left .about-image img {
+                max-width: 280px;
             }
             .about-text .education-block .edu-item {
                 font-size: 16px;
@@ -904,9 +955,6 @@
         }
 
         @media (max-width: 480px) {
-            .about-image img {
-                height: 300px;
-            }
             .cert-card.vertical {
                 height: 300px;
             }
@@ -919,7 +967,9 @@
 
 <body>
 
-    <!-- ШАПКА (HERO) -->
+    <!-- ============================================================
+    ШАПКА (HERO)
+    ============================================================ -->
     <div class="container">
         <section class="hero">
             <div class="hero-content animate-up delay-1">
@@ -949,11 +999,45 @@
             </div>
         </section>
 
-        <!-- ОБО МНЕ -->
+        <!-- ============================================================
+        ОБО МНЕ
+        ============================================================ -->
         <section class="about-section">
-            <div class="about-image animate-left delay-1">
-                <img src="images/avatar2.jpg" alt="Вета Волкова" onclick="openLightbox(this.src, 'Вета Волкова')" />
+            <!-- ЛЕВАЯ ЧАСТЬ: ФОТО + ИНСТРУМЕНТЫ + ТЕКСТ -->
+            <div class="about-left animate-left delay-1">
+                <div class="about-image">
+                    <img src="images/avatar2.jpg" alt="Вета Волкова" onclick="openLightbox(this.src, 'Вета Волкова')" />
+                </div>
+
+                <div class="tools-block">
+                    <p class="tools-title">🛠️ Инструменты</p>
+                    <div class="skill-tags">
+                        <span>🏛️ Архитектура</span>
+                        <span>🎨 3D-визуализация</span>
+                        <span>🖌️ Брендинг</span>
+                        <span>📐 Генплан</span>
+                        <span>🧱 Интерьеры</span>
+                        <span>📱 Веб-дизайн</span>
+                        <span>🖥️ AutoCAD</span>
+                        <span>🧊 Blender</span>
+                        <span>📷 Photoshop</span>
+                        <span>✏️ Illustrator</span>
+                        <span>📐 Figma</span>
+                        <span>📏 SketchUp</span>
+                        <span>📐 ArchiCAD</span>
+                        <span>🧠 Нейросети</span>
+                    </div>
+
+                    <p class="tools-text">
+                        Я открыта к нестандартным задачам. Люблю, когда в проекте есть вызов и пространство для поиска неочевидных решений. Делаю сложное — понятным, а простое — красивым.
+                    </p>
+                    <p class="tools-cta">
+                        Давайте создадим что-то вместе.
+                    </p>
+                </div>
             </div>
+
+            <!-- ПРАВАЯ ЧАСТЬ: ТЕКСТ ОБО МНЕ -->
             <div class="about-text">
                 <h2 class="animate-right delay-1">Обо мне</h2>
 
@@ -963,6 +1047,10 @@
 
                 <p class="animate-right delay-3">
                     В каждом проекте я ищу ответ на вопрос: <em>«Как это будет жить?»</em> Свет, материалы, движение людей, смена сезонов — я продумываю всё, чтобы пространство было красивым, удобным и долговечным.
+                </p>
+
+                <p class="animate-right delay-3">
+                    Я верю, что дизайн — это не про стиль, а про ощущения. Каждый проект для меня — это поиск баланса между эстетикой и функциональностью, между формой и смыслом.
                 </p>
 
                 <!-- БЛОК ОБ ОБРАЗОВАНИИ -->
@@ -1001,6 +1089,7 @@
                     </div>
                 </div>
 
+                <!-- СТАТИСТИКА -->
                 <div class="about-stats animate-up delay-4">
                     <div class="stat-item">
                         <span class="number">1+</span>
@@ -1015,40 +1104,12 @@
                         <span class="label">элементов фирмстиля</span>
                     </div>
                 </div>
-
-                <!-- ИНСТРУМЕНТЫ -->
-                <div style="margin: 20px 0 0;" class="animate-up delay-5">
-                    <p style="font-size: 17px; color: #b0b0b0; margin-bottom: 8px;">
-                        <strong style="color: #c4a675;">🛠️ Инструменты</strong>
-                    </p>
-                    <div class="skill-tags">
-                        <span>🏛️ Архитектура</span>
-                        <span>🎨 3D-визуализация</span>
-                        <span>🖌️ Брендинг</span>
-                        <span>📐 Генплан</span>
-                        <span>🧱 Интерьеры</span>
-                        <span>📱 Веб-дизайн</span>
-                        <span>🖥️ AutoCAD</span>
-                        <span>🧊 Blender</span>
-                        <span>📷 Photoshop</span>
-                        <span>✏️ Illustrator</span>
-                        <span>📐 Figma</span>
-                        <span>📏 SketchUp</span>
-                        <span>📐 ArchiCAD</span>
-                        <span>🧠 Нейросети</span>
-                    </div>
-                </div>
-
-                <p style="margin-top: 20px; font-size: 19px; color: #b0b0b0; line-height: 1.9;" class="animate-up delay-5">
-                    Я открыта к нестандартным задачам. Люблю, когда в проекте есть вызов и пространство для поиска неочевидных решений. Делаю сложное — понятным, а простое — красивым.
-                </p>
-                <p style="font-size: 22px; color: #c4a675; font-weight: 600; margin-top: 10px;" class="animate-up delay-6">
-                    Давайте создадим что-то вместе.
-                </p>
             </div>
         </section>
 
-        <!-- ПРОЕКТЫ -->
+        <!-- ============================================================
+        ПРОЕКТЫ
+        ============================================================ -->
         <div class="projects-heading animate-up delay-2" id="projects">
             <h2>📂 Проекты</h2>
             <p>Нажми на любой, чтобы изучить детали</p>
@@ -1113,7 +1174,9 @@
 
         </div>
 
-        <!-- СЕРТИФИКАТЫ -->
+        <!-- ============================================================
+        СЕРТИФИКАТЫ
+        ============================================================ -->
         <section class="certs-section animate-up delay-3">
             <h2>📜 Сертификаты</h2>
             <div class="certs-grid">
@@ -1132,7 +1195,9 @@
             </div>
         </section>
 
-        <!-- КОНТАКТЫ -->
+        <!-- ============================================================
+        КОНТАКТЫ
+        ============================================================ -->
         <section class="contact-section animate-up delay-4">
             <h2>📬 Давайте работать</h2>
             <p class="phone">📱 +7 951 361 38 80</p>
@@ -1150,14 +1215,18 @@
 
     </div>
 
-    <!-- ЛАЙТБОКС -->
+    <!-- ============================================================
+    ЛАЙТБОКС
+    ============================================================ -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
         <span class="close" onclick="closeLightbox(event)">×</span>
         <img id="lightbox-img" src="" alt="Фото">
         <div class="caption-text" id="lightbox-caption"></div>
     </div>
 
-    <!-- КНОПКА НАВЕРХ -->
+    <!-- ============================================================
+    КНОПКА НАВЕРХ
+    ============================================================ -->
     <button class="back-to-top" id="backToTop" aria-label="Наверх"><i class="fas fa-arrow-up"></i></button>
 
     <script>
