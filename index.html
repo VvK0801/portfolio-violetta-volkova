@@ -264,6 +264,7 @@
             transform: translateX(5px);
         }
 
+        /* ===== ОБО МНЕ ===== */
         .about-section {
             display: flex;
             align-items: stretch;
@@ -534,6 +535,7 @@
             margin-top: 4px;
         }
 
+        /* ===== ПРОЕКТЫ ===== */
         .projects-heading {
             padding: 60px 0 10px;
         }
@@ -630,6 +632,7 @@
             transform: translateX(8px);
         }
 
+        /* ===== СЕРТИФИКАТЫ ===== */
         .certs-section {
             padding: 40px 0 60px;
             border-top: 1px solid #2a2a2a;
@@ -691,6 +694,7 @@
             pointer-events: none;
         }
 
+        /* ===== ЛАЙТБОКС ===== */
         .lightbox {
             display: none;
             position: fixed;
@@ -752,6 +756,7 @@
             backdrop-filter: blur(4px);
         }
 
+        /* ===== КОНТАКТЫ ===== */
         .contact-section {
             padding: 50px 0 40px;
             border-top: 1px solid #2a2a2a;
@@ -852,6 +857,9 @@
             transform: translateY(-4px) scale(1.05);
         }
 
+        /* ============================================================
+                   АДАПТИВ — ТОЛЬКО ДЛЯ ТЕЛЕФОНА
+                   ============================================================ */
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column-reverse;
@@ -865,46 +873,71 @@
             .hero-social {
                 justify-content: center;
             }
+
+            /* МЕНЯЕМ ПОРЯДОК НА ТЕЛЕФОНЕ */
             .about-section {
                 flex-direction: column;
                 text-align: center;
                 padding: 50px 0;
+                gap: 30px;
             }
+
             .about-left {
+                order: 1;
+                width: 100%;
                 align-items: center;
             }
+
             .about-left .about-image img {
                 max-width: 300px;
+                height: 400px;
+                aspect-ratio: auto;
             }
+
             .about-left .tools-block {
                 text-align: center;
+                margin-top: 10px;
             }
+
             .about-left .tools-block .skill-tags {
                 justify-content: center;
             }
-            .about-stats {
+
+            .about-text {
+                order: 2;
+                width: 100%;
+                text-align: left;
+            }
+
+            .about-text .about-stats {
                 justify-content: center;
             }
+
             .projects-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .certs-grid {
                 grid-template-columns: 1fr 1fr;
                 max-width: 100%;
                 gap: 20px;
             }
+
             .cert-card.vertical {
                 grid-row: span 1;
                 height: 300px;
             }
+
             .cert-card.horizontal {
                 height: 300px;
             }
+
             .lightbox .close {
                 font-size: 30px;
                 top: 15px;
                 right: 20px;
             }
+
             .lightbox .caption-text {
                 font-size: 14px;
                 bottom: 60px;
@@ -916,37 +949,48 @@
             .container {
                 padding: 0 20px;
             }
+
             .hero-content h1 {
                 font-size: 36px;
             }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
             .certs-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 gap: 16px;
             }
+
             .cert-card.vertical {
                 height: 350px;
             }
+
             .cert-card.horizontal {
                 height: 250px;
             }
+
             .hero-image img {
                 max-width: 300px;
             }
+
             .about-left .about-image img {
                 max-width: 280px;
+                height: 350px;
             }
+
             .about-text .education-block .edu-item {
                 font-size: 16px;
             }
+
             .lightbox .close {
                 font-size: 30px;
                 top: 15px;
                 right: 20px;
             }
+
             .lightbox .caption-text {
                 font-size: 14px;
                 bottom: 60px;
@@ -955,9 +999,15 @@
         }
 
         @media (max-width: 480px) {
+            .about-left .about-image img {
+                max-width: 240px;
+                height: 300px;
+            }
+
             .cert-card.vertical {
                 height: 300px;
             }
+
             .cert-card.horizontal {
                 height: 220px;
             }
