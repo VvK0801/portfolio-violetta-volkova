@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
-        /* ============================================================
-                   ГЛОБАЛЬНЫЕ СТИЛИ
-                   ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -37,9 +34,6 @@
             padding: 0 40px;
         }
 
-        /* ============================================================
-                   АНИМАЦИИ
-                   ============================================================ */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -124,9 +118,6 @@
         .delay-5 { animation-delay: 0.9s; }
         .delay-6 { animation-delay: 1.1s; }
 
-        /* ============================================================
-                   ШАПКА (Hero)
-                   ============================================================ */
         .hero {
             display: flex;
             align-items: center;
@@ -273,10 +264,7 @@
             transform: translateX(5px);
         }
 
-        /* ============================================================
-                   ОБО МНЕ
-                   ============================================================ */
-        .about-wrapper {
+        .about-section {
             display: flex;
             align-items: stretch;
             gap: 60px;
@@ -286,7 +274,6 @@
             margin-top: 20px;
         }
 
-        /* ===== ЛЕВАЯ КОЛОНКА (ФОТО + ИНСТРУМЕНТЫ) ===== */
         .about-left {
             flex: 1 1 35%;
             min-width: 250px;
@@ -297,6 +284,9 @@
 
         .about-left .about-image {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .about-left .about-image img {
@@ -371,15 +361,14 @@
             margin-top: 8px;
         }
 
-        /* ===== ПРАВАЯ КОЛОНКА (ТЕКСТ ОБО МНЕ) ===== */
-        .about-right {
+        .about-text {
             flex: 1 1 50%;
             min-width: 280px;
             display: flex;
             flex-direction: column;
         }
 
-        .about-right h2 {
+        .about-text h2 {
             font-size: 40px;
             font-weight: 700;
             margin-bottom: 20px;
@@ -387,14 +376,14 @@
             color: #ffffff;
         }
 
-        .about-right p {
+        .about-text p {
             font-size: 19px;
             line-height: 1.9;
             color: #b0b0b0;
             margin-bottom: 20px;
         }
 
-        .about-right .education-block {
+        .about-text .education-block {
             margin: 25px 0;
             padding: 25px 30px;
             background: rgba(196, 166, 117, 0.05);
@@ -403,47 +392,47 @@
             transition: all 0.3s ease;
         }
 
-        .about-right .education-block:hover {
+        .about-text .education-block:hover {
             background: rgba(196, 166, 117, 0.1);
             transform: translateX(5px);
         }
 
-        .about-right .education-block .edu-title {
+        .about-text .education-block .edu-title {
             font-size: 20px;
             font-weight: 700;
             color: #c4a675;
             margin-bottom: 12px;
         }
 
-        .about-right .education-block .edu-item {
+        .about-text .education-block .edu-item {
             font-size: 18px;
             color: #b0b0b0;
             margin-bottom: 6px;
             line-height: 1.8;
         }
 
-        .about-right .education-block .edu-item strong {
+        .about-text .education-block .edu-item strong {
             color: #c4a675;
         }
 
-        .about-right .education-block .status {
+        .about-text .education-block .status {
             color: #c4a675;
             font-size: 15px;
             margin-left: 4px;
         }
 
-        .about-right .education-block .edu-university {
+        .about-text .education-block .edu-university {
             color: #e8e8e8;
         }
 
-        .about-right .education-block .courses-title {
+        .about-text .education-block .courses-title {
             font-size: 17px;
             font-weight: 600;
             color: #c4a675;
             margin: 14px 0 8px 0;
         }
 
-        .about-right .education-block .course-item {
+        .about-text .education-block .course-item {
             font-size: 17px;
             color: #b0b0b0;
             line-height: 1.8;
@@ -451,14 +440,14 @@
             position: relative;
         }
 
-        .about-right .education-block .course-item::before {
+        .about-text .education-block .course-item::before {
             content: "•";
             color: #c4a675;
             position: absolute;
             left: 0;
         }
 
-        .about-right .project-highlight {
+        .about-text .project-highlight {
             margin: 25px 0;
             padding: 22px 28px;
             background: rgba(196, 166, 117, 0.05);
@@ -467,40 +456,40 @@
             transition: all 0.3s ease;
         }
 
-        .about-right .project-highlight:hover {
+        .about-text .project-highlight:hover {
             background: rgba(196, 166, 117, 0.1);
             transform: translateX(5px);
         }
 
-        .about-right .project-highlight .highlight-title {
+        .about-text .project-highlight .highlight-title {
             font-size: 18px;
             color: #b0b0b0;
             margin-bottom: 6px;
             line-height: 1.8;
         }
 
-        .about-right .project-highlight .highlight-title strong {
+        .about-text .project-highlight .highlight-title strong {
             color: #c4a675;
         }
 
-        .about-right .project-highlight .highlight-name {
+        .about-text .project-highlight .highlight-name {
             font-size: 22px;
             color: #e8e8e8;
             font-weight: 600;
             margin-bottom: 4px;
         }
 
-        .about-right .project-highlight .highlight-desc {
+        .about-text .project-highlight .highlight-desc {
             font-size: 18px;
             color: #b0b0b0;
             line-height: 1.9;
         }
 
-        .about-right .project-highlight .highlight-desc strong {
+        .about-text .project-highlight .highlight-desc strong {
             color: #c4a675;
         }
 
-        .about-right .btn-gold {
+        .about-text .btn-gold {
             display: inline-block;
             background: linear-gradient(135deg, #c4a675 0%, #a8894a 100%);
             color: #1a1a1a;
@@ -514,40 +503,37 @@
             box-shadow: 0 4px 15px rgba(196, 166, 117, 0.3);
         }
 
-        .about-right .btn-gold:hover {
+        .about-text .btn-gold:hover {
             background: #ffffff;
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(196, 166, 117, 0.4);
         }
 
-        .about-right .about-stats {
+        .about-text .about-stats {
             display: flex;
             gap: 50px;
             flex-wrap: wrap;
             margin-top: 10px;
         }
 
-        .about-right .stat-item {
+        .about-text .stat-item {
             display: flex;
             flex-direction: column;
         }
 
-        .about-right .stat-item .number {
+        .about-text .stat-item .number {
             font-size: 38px;
             font-weight: 800;
             color: #c4a675;
             line-height: 1;
         }
 
-        .about-right .stat-item .label {
+        .about-text .stat-item .label {
             font-size: 16px;
             color: #8a8a8a;
             margin-top: 4px;
         }
 
-        /* ============================================================
-                   ПРОЕКТЫ
-                   ============================================================ */
         .projects-heading {
             padding: 60px 0 10px;
         }
@@ -644,9 +630,6 @@
             transform: translateX(8px);
         }
 
-        /* ============================================================
-                   СЕРТИФИКАТЫ
-                   ============================================================ */
         .certs-section {
             padding: 40px 0 60px;
             border-top: 1px solid #2a2a2a;
@@ -708,9 +691,6 @@
             pointer-events: none;
         }
 
-        /* ============================================================
-                   ЛАЙТБОКС
-                   ============================================================ */
         .lightbox {
             display: none;
             position: fixed;
@@ -772,9 +752,6 @@
             backdrop-filter: blur(4px);
         }
 
-        /* ============================================================
-                   КОНТАКТЫ
-                   ============================================================ */
         .contact-section {
             padding: 50px 0 40px;
             border-top: 1px solid #2a2a2a;
@@ -876,99 +853,116 @@
         }
 
         /* ============================================================
-                   МОБИЛЬНАЯ ВЕРСИЯ (до 768px)
-                   ============================================================ */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
+           МЕДИА-ЗАПРОСЫ (исправленная мобильная версия)
+        ============================================================ */
+        @media (max-width: 900px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
                 padding: 40px 0;
                 min-height: auto;
             }
-
             .hero-content h1 {
-                font-size: 36px;
+                font-size: 44px;
             }
-
             .hero-social {
                 justify-content: center;
             }
 
-            /* ===== МЕНЯЕМ ПОРЯДОК НА ТЕЛЕФОНЕ ===== */
-            .about-wrapper {
+            .about-section {
                 flex-direction: column;
-                padding: 40px 0;
-                gap: 30px;
+                text-align: center;
+                padding: 50px 0;
             }
 
+            /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: меняем порядок блоков в мобильной версии */
             .about-left {
+                order: 2;
+                align-items: center;
+                width: 100%;
+            }
+
+            .about-text {
                 order: 1;
                 width: 100%;
-                align-items: center;
-                flex: none;
             }
 
             .about-left .about-image img {
-                max-width: 280px;
-                height: 350px;
-                aspect-ratio: auto;
+                max-width: 300px;
             }
-
             .about-left .tools-block {
                 text-align: center;
+                width: 100%;
                 max-width: 100%;
             }
-
             .about-left .tools-block .skill-tags {
                 justify-content: center;
             }
-
-            .about-right {
-                order: 2;
-                width: 100%;
-                flex: none;
-            }
-
-            .about-right .about-stats {
+            .about-stats {
                 justify-content: center;
             }
-
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
-
             .certs-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                gap: 16px;
+                grid-template-columns: 1fr 1fr;
+                max-width: 100%;
+                gap: 20px;
             }
-
             .cert-card.vertical {
-                height: 350px;
+                grid-row: span 1;
+                height: 300px;
             }
-
             .cert-card.horizontal {
-                height: 250px;
+                height: 300px;
             }
-
-            .hero-image img {
-                max-width: 300px;
-            }
-
-            .about-text .education-block .edu-item {
-                font-size: 16px;
-            }
-
             .lightbox .close {
                 font-size: 30px;
                 top: 15px;
                 right: 20px;
             }
+            .lightbox .caption-text {
+                font-size: 14px;
+                bottom: 60px;
+                padding: 6px 16px;
+            }
+        }
 
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .certs-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 16px;
+            }
+            .cert-card.vertical {
+                height: 350px;
+            }
+            .cert-card.horizontal {
+                height: 250px;
+            }
+            .hero-image img {
+                max-width: 300px;
+            }
+            .about-left .about-image img {
+                max-width: 280px;
+            }
+            .about-text .education-block .edu-item {
+                font-size: 16px;
+            }
+            .lightbox .close {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
             .lightbox .caption-text {
                 font-size: 14px;
                 bottom: 60px;
@@ -977,33 +971,11 @@
         }
 
         @media (max-width: 480px) {
-            .about-left .about-image img {
-                max-width: 240px;
-                height: 300px;
-            }
-
             .cert-card.vertical {
                 height: 300px;
             }
-
             .cert-card.horizontal {
                 height: 220px;
-            }
-
-            .about-right h2 {
-                font-size: 28px;
-            }
-
-            .about-right p {
-                font-size: 17px;
-            }
-
-            .about-left .tools-block .tools-text {
-                font-size: 17px;
-            }
-
-            .about-left .tools-block .tools-cta {
-                font-size: 20px;
             }
         }
     </style>
@@ -1046,8 +1018,8 @@
         <!-- ============================================================
         ОБО МНЕ
         ============================================================ -->
-        <div class="about-wrapper">
-            <!-- ЛЕВАЯ ЧАСТЬ: ФОТО + ИНСТРУМЕНТЫ -->
+        <section class="about-section">
+            <!-- ЛЕВАЯ ЧАСТЬ: ФОТО + ИНСТРУМЕНТЫ + ТЕКСТ -->
             <div class="about-left animate-left delay-1">
                 <div class="about-image">
                     <img src="images/avatar2.jpg" alt="Вета Волкова" onclick="openLightbox(this.src, 'Вета Волкова')" />
@@ -1081,19 +1053,19 @@
                 </div>
             </div>
 
-            <!-- ПРАВАЯ ЧАСТЬ: ОБО МНЕ + ОБРАЗОВАНИЕ + ПРОЕКТ + СТАТИСТИКА -->
-            <div class="about-right animate-right delay-1">
-                <h2>Обо мне</h2>
+            <!-- ПРАВАЯ ЧАСТЬ: ТЕКСТ ОБО МНЕ -->
+            <div class="about-text">
+                <h2 class="animate-right delay-1">Обо мне</h2>
 
-                <p>
+                <p class="animate-right delay-2">
                     Меня зовут Вета. Я создаю пространства, в которых хочется оставаться. Проектирую на стыке архитектуры, дизайна и брендинга. Для меня нет деления на интерьер и экстерьер — есть целостная среда, где каждая деталь работает на атмосферу.
                 </p>
 
-                <p>
+                <p class="animate-right delay-3">
                     В каждом проекте я ищу ответ на вопрос: <em>«Как это будет жить?»</em> Свет, материалы, движение людей, смена сезонов — я продумываю всё, чтобы пространство было красивым, удобным и долговечным.
                 </p>
 
-                <p>
+                <p class="animate-right delay-3">
                     Я верю, что дизайн — это не про стиль, а про ощущения. Каждый проект для меня — это поиск баланса между эстетикой и функциональностью, между формой и смыслом.
                 </p>
 
@@ -1149,7 +1121,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- ============================================================
         ПРОЕКТЫ
